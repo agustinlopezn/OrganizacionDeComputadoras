@@ -20,11 +20,14 @@ medida que el programa avance en la lectura de éstos, deberá ordenar cada vect
 creciente, e imprimir inmediatamente el resultado por el stream de salida.
 Los vectores ingresarán como texto por entrada estándar (stdin), donde cáda lı́nea describe
 completamente el contenido del mismo, según el siguiente formato:
+
 v 1 v 2 ... v N
+
 El fin de lı́nea es el caracter \n (newline). Debido a que cada lı́nea contiene exactamente
 un único vector, el fin del mismo coincidirá siempre con el final de la lı́nea que lo contiene. A
 su vez, cada entero del vector estará separado de otros elementos por uno o más caracteres de
 espacio en blanco.Por ejemplo, dado el siguiente flujo de entrada:
+
 $ cat input.txt
 3 2 1
 6 5 1 2 9 3 8 7 4
@@ -39,9 +42,10 @@ $ tp1 -i input.txt -o -
 -1
 Ante un error, el progama deberá detenerse informando la situación inmediatamente (por
 stderr).
-4.1.
-Ejemplos
+### 4.1. Ejemplos
+
 Primero, usamos la opción -h para ver el mensaje de ayuda:
+
 $ tp1 -h
 Usage:
 tp1 -h
@@ -68,14 +72,19 @@ $ cat example.txt | ./tp1
 1
 -1 1
 2
+
 ### 5.Implementación
+
 El programa a desarrollar constará de una mezcla entre código MIPS32 y C, siendo la parte
 escrita en assembly la encargada de ordenar un vector de enteros pasado por parámetro. El
 formato de dicha función será:
-void merge_sort(int *vec, size_t len);
+
+`void merge_sort(int *vec, size_t len);`
+
 Asimismo deberá usarse el algoritmo merge sort [1] y el modo 1 del sistema operativo para
 manejo de acceso no alineado a memoria [3].
-###6.Informe
+
+### 6.Informe
 
 El informe deberá incluir:
 Documentación relevante al diseño e implementación del programa;
@@ -86,6 +95,7 @@ El código MIPS32 generado por el compilador 1 ;
 Este enunciado.
 
 ### 7.Entrega de TPs
+
 La entrega de este trabajo deberá realizarse usando el campus virtual de la materia [4].
 Asimismo, en todos los casos, estas presentaciones deberán ser realizadas durante los dı́as martes.
 El feedback estará disponible de un martes hacia el otro, como ocurre durante la modalidad
