@@ -1,4 +1,4 @@
-# OrganizacionDeComputadoras
+# 66.20 Organización de Computadoras, Trabajo práctico 1: Programación MIPS
 
 ### 1.Objetivos
 Familiarizarse con el conjunto de instrucciones MIPS y el concepto de ABI, extendiendo un
