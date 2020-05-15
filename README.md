@@ -1,20 +1,20 @@
 # OrganizacionDeComputadoras
 
-###1.Objetivos
+### 1.Objetivos
 Familiarizarse con el conjunto de instrucciones MIPS y el concepto de ABI, extendiendo un
 programa que resuelva el problema descripto a continuación.
 
-###2.Alcance
+### 2.Alcance
 Este trabajo práctico es de elaboración grupal, evaluación individual, y de carácter obligatorio
 para todos alumnos del curso.
 
-###3.Requisitos
+### 3.Requisitos
 El trabajo deberá ser entregado personalmente, en la fecha estipulada, con una carátula que
 contenga los datos completos de todos los integrantes, un informe impreso de acuerdo con lo que
 mencionaremos en la sección 6, y con una copia digital de los archivos fuente necesarios para
 compilar el trabajo.
 
-###4.Descripción
+### 4.Descripción
 El programa a desarrollar deberá procesar un stream de vectores de números enteros. A
 medida que el programa avance en la lectura de éstos, deberá ordenar cada vector en forma
 creciente, e imprimir inmediatamente el resultado por el stream de salida.
@@ -68,7 +68,7 @@ $ cat example.txt | ./tp1
 1
 -1 1
 2
-###5.Implementación
+### 5.Implementación
 El programa a desarrollar constará de una mezcla entre código MIPS32 y C, siendo la parte
 escrita en assembly la encargada de ordenar un vector de enteros pasado por parámetro. El
 formato de dicha función será:
@@ -85,7 +85,7 @@ El código fuente, en lenguaje C y MIPS;
 El código MIPS32 generado por el compilador 1 ;
 Este enunciado.
 
-###7.Entrega de TPs
+### 7.Entrega de TPs
 La entrega de este trabajo deberá realizarse usando el campus virtual de la materia [4].
 Asimismo, en todos los casos, estas presentaciones deberán ser realizadas durante los dı́as martes.
 El feedback estará disponible de un martes hacia el otro, como ocurre durante la modalidad
@@ -101,6 +101,7 @@ Referencias
 https://www.linux-mips.org/wiki/Alignment.
 [4] Aula Virtual - Organización de Computadoras 86.37/66.20 - Curso 1 - Turno Martes.
 https://campus.fi.uba.ar/course/view.php?id=649
+https://drive.google.com/drive/folders/1RZNflRb6sG8nqsUAVxS2Ch1pNnEJCxxi
 1
 Por motivos prácticos, en la copia impresa sólo es necesario incluir la primera página del código assembly
 MIPS32 generado por el compilador.
