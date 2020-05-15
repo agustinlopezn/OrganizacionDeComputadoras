@@ -3,14 +3,17 @@
 ###1.Objetivos
 Familiarizarse con el conjunto de instrucciones MIPS y el concepto de ABI, extendiendo un
 programa que resuelva el problema descripto a continuación.
+
 ###2.Alcance
 Este trabajo práctico es de elaboración grupal, evaluación individual, y de carácter obligatorio
 para todos alumnos del curso.
+
 ###3.Requisitos
 El trabajo deberá ser entregado personalmente, en la fecha estipulada, con una carátula que
 contenga los datos completos de todos los integrantes, un informe impreso de acuerdo con lo que
 mencionaremos en la sección 6, y con una copia digital de los archivos fuente necesarios para
 compilar el trabajo.
+
 ###4.Descripción
 El programa a desarrollar deberá procesar un stream de vectores de números enteros. A
 medida que el programa avance en la lectura de éstos, deberá ordenar cada vector en forma
@@ -73,6 +76,7 @@ void merge_sort(int *vec, size_t len);
 Asimismo deberá usarse el algoritmo merge sort [1] y el modo 1 del sistema operativo para
 manejo de acceso no alineado a memoria [3].
 ###6.Informe
+
 El informe deberá incluir:
 Documentación relevante al diseño e implementación del programa;
 Comando(s) para compilar el programa;
@@ -80,6 +84,7 @@ Las corridas de prueba, con los comentarios pertinentes;
 El código fuente, en lenguaje C y MIPS;
 El código MIPS32 generado por el compilador 1 ;
 Este enunciado.
+
 ###7.Entrega de TPs
 La entrega de este trabajo deberá realizarse usando el campus virtual de la materia [4].
 Asimismo, en todos los casos, estas presentaciones deberán ser realizadas durante los dı́as martes.
@@ -87,6 +92,8 @@ El feedback estará disponible de un martes hacia el otro, como ocurre durante l
 presencial de cursada.
 Por otro lado, la última fecha de entrega y presentación para esta trabajo será el martes
 26/5.
+
+
 Referencias
 [1] Merge sort, https://en.wikipedia.org/wiki/Merge_sort.
 [2] Bubble sort, https://en.wikipedia.org/wiki/Bubble_sort.
