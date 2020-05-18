@@ -1,7 +1,9 @@
 # 66.20 Organización de Computadoras, Trabajo práctico 1: Programación MIPS
 
 ## Para trabajar en qemu
+### Para mandar algun archivo
 scp -P 5555 file.txt root@localhost:/tmp
+### Para compilar
 cc -g -Wall -o <ejecutable> prueba.c prueba.S
 
 #### recordar poner extern void merge_sort(int vector[], int largo); en el .c
