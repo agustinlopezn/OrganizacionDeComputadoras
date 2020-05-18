@@ -1,5 +1,13 @@
 # 66.20 Organización de Computadoras, Trabajo práctico 1: Programación MIPS
 
+## Para trabajar en qemu
+scp -P 5555 file.txt root@localhost:/tmp
+cc -g -Wall -o <ejecutable> prueba.c prueba.S
+
+#### recordar poner extern void merge_sort(int vector[], int largo); en el .c
+
+
+
 ### 1.Objetivos
 Familiarizarse con el conjunto de instrucciones MIPS y el concepto de ABI, extendiendo un
 programa que resuelva el problema descripto a continuación.
