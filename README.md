@@ -4,9 +4,14 @@
 ### Para mandar algun archivo
 scp -P 5555 file.txt root@localhost:/tmp
 ### Para compilar
-cc -g -Wall -o <ejecutable> prueba.c prueba.S
-
-#### recordar poner extern void merge_sort(int vector[], int largo); en el .c
+cc -g -Wall -o tp1 tp1.c mergeSort.S
+### Correr
+./tp1 -i input.txt -o output.txt **ambas archivos particulares**
+./tp1 -i - -o output.txt **entrada estandar**
+./tp1 -i input -o - **salida estandar**
+./tp1 -i - -o - **ambas estandar**
+#### Para compilar localmente
+gcc -g -std=c99 -Wall -Wconversion -Wtype-limits -pedantic -Werror -o tp1 tp1.c
 
 
 
