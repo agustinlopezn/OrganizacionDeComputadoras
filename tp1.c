@@ -5,7 +5,7 @@
 #include <stddef.h>
 #include <ctype.h>
 #include <stdbool.h>
-#include"mergesort.h"
+#include"merge_sort.h"
 #define _POSIX_C_SOURCE 200809L //para incluir getline
 
  //extern void mergesort(int vector[], int largo);
@@ -18,33 +18,31 @@ void parseo_ordenando(FILE* a_entrada, FILE* a_salida){
 
     while((bytes_leidos = getline(&linea, &tam, a_entrada)) != -1){    
           
-        //FALTA CONTAR EL LARGO DEL VECTOR SIN USAR STRTOK
+        //CONTAMOS EL LARGO DEL VECTOR SIN USAR STRTOK PARA INICIALIZARLO
         int largo_vec = 0;
         bool flag_negativo = false;
         bool flag_numero = false;
 
         for(int i = 0; i < bytes_leidos-1; i++){
+
             if(isdigit(linea[i]) && !flag_numero) {
                 if(flag_negativo) flag_negativo = false;
                 flag_numero = true;
                 largo_vec++;
             }
+            
             else if(linea[i] == '-'){
                 if(flag_negativo == true) fprintf(stderr, "Invalid input\n");
                 else if(flag_negativo == false) flag_negativo = true;
                 flag_numero = false;
             }
-            else if(linea[i] == ' '){
-                flag_numero = false;
-                //printf("entre espacio\n");
-            }
+            
+            else if(linea[i] == ' ') flag_numero = false;
+            
             else if((linea[i] != '\0') && (linea[i] != '\n') && !flag_numero) {
                 fprintf(stderr, "Invalid input\n");
-                //printf("ASCII: %d\n", linea[i]);
-                //printf("iteracion: %d\n", i);
             }    
         }
-        //printf("largo_vec: %ld\n", largo_vec);
 
         int vector[largo_vec];
 
@@ -58,7 +56,7 @@ void parseo_ordenando(FILE* a_entrada, FILE* a_salida){
             str = strtok(NULL, " ");
         }
        
-        mergesort(vector, largo_vec);
+        merge_sort(vector, largo_vec);
 
         for(int i = 0; i < k; i++){
             fprintf(a_salida, "%d ", vector[i]);
@@ -115,17 +113,3 @@ int main(int argc, char *argv[]){
     
     return 0;
 }
-    
-/*// SOLUCION AUXILIAR
-        size_t largo_vec = strlen(linea); 
-//CONTAMOS HASTA DONDE HAY NUMEROS
-        for(int i = 0; i < largo_vec; i++){
-            if(!isdigit(linea[i])) largo_vec = i+1;
-        }
-        //LARGO DE VECTOR CORRECTO
-        int vector[largo_vec];
-
-        //PASAMOS LOS VALORES AL VECTOR DE LARGO CORRECTO
-        for(int i = 0; i < largo_vec; i++){
-            vector[i] = vector_aux[i];
-        }*/

@@ -4,10 +4,10 @@
 	.align 2
 	.text
 	.extern merge
-	.globl mergesort
-	.ent mergesort
+	.globl merge_sort
+	.ent merge_sort
 
-mergesort:
+merge_sort:
 	
 	sll a1,a1,2 # escalo largo en bytes
 
@@ -68,4 +68,4 @@ return:
 	add sp,sp,32
 	jr ra
 	
-	.end mergesort
+	.end merge_sort
