@@ -4,12 +4,12 @@
 ### Para mandar algun archivo
 scp -P 5555 file.txt root@localhost:/tmp
 ### Para compilar
-cc -g -Wall -o tp1 tp1.c mergeSort.S
+gcc -g -std=c99 -Wall -Wconversion -Wtype-limits -pedantic -Werror -o tp1 tp1.c *.S
 ### Correr
-./tp1 -i input.txt -o output.txt **ambas archivos particulares**
-./tp1 -i - -o output.txt **entrada estandar**
-./tp1 -i input -o - **salida estandar**
-./tp1 -i - -o - **ambas estandar**
+./tp1 -i input.txt -o output.txt **ambas archivos particulares**<br/>
+./tp1 -i - -o output.txt **entrada estandar**<br/>
+./tp1 -i input -o - **salida estandar**<br/>
+./tp1 -i - -o - **ambas estandar**<br/>
 #### Para compilar localmente
 gcc -g -std=c99 -Wall -Wconversion -Wtype-limits -pedantic -Werror -o tp1 tp1.c
 
@@ -43,50 +43,46 @@ un único vector, el fin del mismo coincidirá siempre con el final de la lı́n
 su vez, cada entero del vector estará separado de otros elementos por uno o más caracteres de
 espacio en blanco.Por ejemplo, dado el siguiente flujo de entrada:
 
-$ cat input.txt
-3 2 1
-6 5 1 2 9 3 8 7 4
-6 0 0 1 3
--1
-9
-Al ejecutar el programa la salida serı́a:
-$ tp1 -i input.txt -o -
-1 2 3
-1 2 3 4 5 6 7 8 9
-0 0 1 3 6
--1
+$ cat input.txt<br/>
+3 2 1<br/>
+6 5 1 2 9 3 8 7 4<br/>
+6 0 0 1 3<br/>
+-1<br/>
+9<br/>
+Al ejecutar el programa la salida serı́a:<br/>
+$ tp1 -i input.txt -o -<br/>
+1 2 3<br/>
+1 2 3 4 5 6 7 8 9<br/>
+0 0 1 3 6<br/>
+-1<br/>
 Ante un error, el progama deberá detenerse informando la situación inmediatamente (por
 stderr).
 ### 4.1. Ejemplos
 
 Primero, usamos la opción -h para ver el mensaje de ayuda:
 
-$ tp1 -h
-Usage:
-tp1 -h
-tp1 -V
-tp1 -i in_file -o out_file
-Options:
--V, --version
-Print version and quit.
--h, --help
-Print this information and quit.
--i, --input
-Specify input stream/file, "-" for stdin.
--o, --output
-Specify output stream/file, "-" for stdout.
-Examples:
-tp1 < in.txt > out.txt
-cat in.txt | tp1 -i - > out.txt
-A continuación, ejecutamos algunas pruebas:
-$ cat example.txt
-1
--1
-+1
-$ cat example.txt | ./tp1
-1
--1 1
-2
+$ tp1 -h<br/>
+Usage:<br/>
+tp1 -h<br/>
+tp1 -V<br/>
+tp1 -i in_file -o out_file<br/>
+Options:<br/>
+-V, --version	Print version and quit.<br/>
+-h, --help	Print this information and quit.<br/>
+-i, --input	Specify input stream/file, "-" for stdin.<br/>
+-o, --output	Specify output stream/file, "-" for stdout.<br/>
+Examples:<br/>
+tp1 < in.txt > out.txt<br/>
+cat in.txt | tp1 -i - > out.txt<br/>
+A continuación, ejecutamos algunas pruebas:<br/>
+$ cat example.txt<br/>
+1<br/>
+-1<br/>
++1<br/>
+$ cat example.txt | ./tp1<br/>
+1<br/>
+-1 1<br/>
+2<br/>
 
 ### 5.Implementación
 
@@ -102,12 +98,12 @@ manejo de acceso no alineado a memoria [3].
 ### 6.Informe
 
 El informe deberá incluir:
-Documentación relevante al diseño e implementación del programa;
-Comando(s) para compilar el programa;
-Las corridas de prueba, con los comentarios pertinentes;
-El código fuente, en lenguaje C y MIPS;
-El código MIPS32 generado por el compilador 1 ;
-Este enunciado.
+* Documentación relevante al diseño e implementación del programa;
+* Comando(s) para compilar el programa;
+* Las corridas de prueba, con los comentarios pertinentes;
+* El código fuente, en lenguaje C y MIPS;
+* El código MIPS32 generado por el compilador 1 ;
+* Este enunciado.
 
 ### 7.Entrega de TPs
 
@@ -119,14 +115,14 @@ Por otro lado, la última fecha de entrega y presentación para esta trabajo ser
 26/5.
 
 
-Referencias
-[1] Merge sort, https://en.wikipedia.org/wiki/Merge_sort.
-[2] Bubble sort, https://en.wikipedia.org/wiki/Bubble_sort.
+Referencias<br/>
+[1] Merge sort, https://en.wikipedia.org/wiki/Merge_sort.<br/>
+[2] Bubble sort, https://en.wikipedia.org/wiki/Bubble_sort.<br/>
 [3] Controlling the kernel unalignment handling via debugfs,
-https://www.linux-mips.org/wiki/Alignment.
+https://www.linux-mips.org/wiki/Alignment.<br/>
 [4] Aula Virtual - Organización de Computadoras 86.37/66.20 - Curso 1 - Turno Martes.
-https://campus.fi.uba.ar/course/view.php?id=649
+https://campus.fi.uba.ar/course/view.php?id=649<br/>
 https://drive.google.com/drive/folders/1RZNflRb6sG8nqsUAVxS2Ch1pNnEJCxxi
-1
-Por motivos prácticos, en la copia impresa sólo es necesario incluir la primera página del código assembly
+1<br/>
+Por motivos prácticos, en la copia impresa sólo es necesario incluir la primera página del código assembly<br/>
 MIPS32 generado por el compilador.
