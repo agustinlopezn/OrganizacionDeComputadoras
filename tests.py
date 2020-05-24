@@ -21,16 +21,6 @@ def writeTest(testNum, numRows, numElements, minNum, maxNum):
 			lineText = ' '.join(map(str, line)) + '\n'
 			f.write(lineText)
 
-	testAnswer(testNum, array)
-
-def testAnswer(answerNum, arrays):
-	file_name = 'testAnswer_' + str(answerNum) + FORMATO
-	with open(file_name, 'w') as f:
-		for array in arrays:
-			array.sort() #Ordeno de menor a mayor
-			lineText = ' '.join(map(str, array)) + '\n'
-			f.write(lineText)
-
 def testMaker():
 	testNum = 1
 	for cant in CANT_ELEM:
