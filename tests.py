@@ -8,9 +8,9 @@ PATH_TP1 = './tp1'
 MIN_NUM = -1000
 MAX_NUM = 1000
 
-def applyMergeSortToFile(nameFile, placeWhereIsLocated = "../src/./tp1"):
+def applyMergeSortToFile(nameFile, placeTp1):
 	'''Aplica el mergesort al archivo de prueba creado y devuelve el resultado'''
-	p = Popen([placeWhereIsLocated, "-i", nameFile], stdout=PIPE, stderr=PIPE)
+	p = Popen([placeTp1, "-i", nameFile], stdout=PIPE, stderr=PIPE)
 	output, err = p.communicate() #Devuelve tupla
 	return output.decode('ascii') #El output legible
 
@@ -67,16 +67,20 @@ def printTest(output, condition):
 
 def testMaker(path):
 	'''Funcion creada para realizar los distintos tests al programa'''
+	testsResults = [1,1,1,1,1,1] # 1 si paso la prueba, 0 si no lo hizo
 	testNum = 1
 	flag = 0
+	
 	cprint('TESTS:', 'yellow')
 	for cant in CANT_ELEM:
 		numRows = randint(4,10)
 		file_name = writeTest(testNum, numRows, cant, MIN_NUM, MAX_NUM) #Cambiar ultimos valores
 		output = applyMergeSortToFile(file_name, path)
 		error = checkOutput(output, testNum)
+		if error:
+			flag = 1 #Para imprimir mensaje luego de correr todos los tests
+			testsResults[testNum - 1] = 0 #Para indicar que esa prueba fallo asi no se elimina el archivo
 		testNum += 1
-		if error: flag = 1 #Para imprimir mensaje luego de correr todos los tests
 
 	if flag:
 		cprint('\nEl programa NO paso todos los tests', 'red')
@@ -85,6 +89,7 @@ def testMaker(path):
 
 	for i in range(1,7):
 		testName = FILE_NAME_TEST + str(i)
-		remove(testName) #Para eliminar los archivos de pruebas creados
+		if testsResults[i - 1]:
+			remove(testName) #Para eliminar los archivos que pasaron la prueba
 
 testMaker(PATH_TP1)

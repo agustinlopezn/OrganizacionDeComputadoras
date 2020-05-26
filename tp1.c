@@ -16,7 +16,12 @@ void parseo_ordenando(FILE* a_entrada, FILE* a_salida){
     size_t tam = 0;
     long int bytes_leidos = 0;
 
-    while ((bytes_leidos = getline(&linea, &tam, a_entrada)) != -1){    
+    while ((bytes_leidos = getline(&linea, &tam, a_entrada)) != -1){  
+        if (linea[0] == '\n'){
+            fprintf(a_salida, "\n");
+            fflush(a_salida); 
+            continue; 
+        }
           
         //CONTAMOS EL LARGO DEL VECTOR SIN USAR STRTOK PARA INICIALIZARLO
         int largo_vec = 0;
@@ -46,7 +51,7 @@ void parseo_ordenando(FILE* a_entrada, FILE* a_salida){
             else if (linea[i] == ' ') flag_numero = false;
             
             else if ((linea[i] != '\0') && (linea[i] != '\n') && !flag_numero) {
-                fprintf(stderr, "Errror: Invalid input character\n");
+                fprintf(stderr, "Error: Invalid input character\n");
                 fflush(stderr);
             }    
         }
