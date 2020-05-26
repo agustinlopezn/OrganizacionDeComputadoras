@@ -38,7 +38,7 @@ def arrayGenerator(numRows, numElements, minNum, maxNum):
 	arrays = []
 	for _ in range(numRows):
 		auxArray = []
-		arrayLen = randint(0, numElements) #Asi cada fila tiene distinto size
+		arrayLen = randint(1, numElements) #Asi cada fila tiene distinto size
 		for i in range(arrayLen):
 			auxArray.append(randint(minNum,maxNum))
 		arrays.append(auxArray)
@@ -65,17 +65,31 @@ def printTest(output, condition):
 		testAnswer = output + 'FAILED\n'
 	cprint(testAnswer, color)
 
+def printInputOutput(input, output, testNum):
+	'''Imprime el archivo que recibe como input, y el output que se genera al aplicar el programa tp1.c'''
+	text = 'Test ' + str(testNum) + ': input file'
+	with open(input, 'r') as f:
+		cprint(text, 'yellow')
+		for linea in f:
+			print(linea.rstrip('\n'))
+
+	text = '\nTest ' + str(testNum) + ': output file'
+	cprint(text, 'yellow')
+	print(output)
+
+
 def testMaker(path):
 	'''Funcion creada para realizar los distintos tests al programa'''
 	testsResults = [1,1,1,1,1,1] # 1 si paso la prueba, 0 si no lo hizo
 	testNum = 1
 	flag = 0
 	
-	cprint('TESTS:', 'yellow')
+	cprint('TESTS:', 'yellow') #hacer que imprima los tests chicos
 	for cant in CANT_ELEM:
 		numRows = randint(4,10)
 		file_name = writeTest(testNum, numRows, cant, MIN_NUM, MAX_NUM) #Cambiar ultimos valores
 		output = applyMergeSortToFile(file_name, path)
+		if testNum <= 2: printInputOutput(file_name, output, testNum) #Solo se imprimen los dos primeros tests
 		error = checkOutput(output, testNum)
 		if error:
 			flag = 1 #Para imprimir mensaje luego de correr todos los tests

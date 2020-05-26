@@ -8,27 +8,20 @@
 #include"merge_sort.h"
 #define _POSIX_C_SOURCE 200809L //para incluir getline
 
- //extern void mergesort(int vector[], int largo);
-
 void parseo_ordenando(FILE* a_entrada, FILE* a_salida){
 
     char* linea = NULL;
     size_t tam = 0;
     long int bytes_leidos = 0;
 
-    while ((bytes_leidos = getline(&linea, &tam, a_entrada)) != -1){  
-        if (linea[0] == '\n'){
-            fprintf(a_salida, "\n");
-            fflush(a_salida); 
-            continue; 
-        }
-          
+    while ((bytes_leidos = getline(&linea, &tam, a_entrada)) != -1){    
         //CONTAMOS EL LARGO DEL VECTOR SIN USAR STRTOK PARA INICIALIZARLO
         int largo_vec = 0;
         bool flag_negativo = false;
         bool flag_numero = false;
 
-        for (int i = 0; i < bytes_leidos-1; i++){
+        for (int i = 0; i < bytes_leidos; i++){
+            if (linea[i] == '\n') continue; //Para no hacer el parseo del \n
 
             if(isdigit(linea[i]) && !flag_numero) {
                 if(flag_negativo) flag_negativo = false;
@@ -41,6 +34,7 @@ void parseo_ordenando(FILE* a_entrada, FILE* a_salida){
                 if (flag_negativo == true){
                     fprintf(stderr, "Invalid input\n");
                     fflush(stderr);
+                    return;
                 }
 
                 else if (flag_negativo == false) flag_negativo = true;
@@ -50,11 +44,13 @@ void parseo_ordenando(FILE* a_entrada, FILE* a_salida){
             
             else if (linea[i] == ' ') flag_numero = false;
             
-            else if ((linea[i] != '\0') && (linea[i] != '\n') && !flag_numero) {
+            else if ((linea[i] != '\0') && !flag_numero) {
                 fprintf(stderr, "Error: Invalid input character\n");
                 fflush(stderr);
+                return;
             }    
         }
+        if (largo_vec == 0) continue;
 
         int vector[largo_vec];
 
